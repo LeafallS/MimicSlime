@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86D2D9EA-B032-44A2-BD58-CAB877962D8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MimicSlime</RootNamespace>
+    <AssemblyName>MimicSlime</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.4.1\lib\net472\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>F:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>F:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>F:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>F:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>F:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abilities\Ability_Mimicry.cs" />
+    <Compile Include="Abilities\Ability_Parasite.cs" />
+    <Compile Include="Abilities\Ability_SlimeAbsorb.cs" />
+    <Compile Include="Abilities\Dialog_Mimicry.cs" />
+    <Compile Include="Abilities\Verb_MimicSlimeCastAbilityTouch.cs" />
+    <Compile Include="Abilities\SlimeKing_JumpWithDamageFlyer.cs" />
+    <Compile Include="Abilities\Verb_CastAbilitySlimeKingJump.cs" />
+    <Compile Include="AnimationWorker_FaceFrontKeyframes.cs" />
+    <Compile Include="HarmonyPatch\OnsetSlimePointsModExtension.cs" />
+    <Compile Include="HarmonyPatch\SlimeHarmonyPatch_GeneratePawn.cs" />
+    <Compile Include="HarmonyPatch\SlimeHarmonyPatch_InstallImplantMechlink.cs" />
+    <Compile Include="HarmonyPatch\SlimeHarmonyPatch_RemoveBodyPartRecipe.cs" />
+    <Compile Include="Hediffs\HediffComp_ShowMimicryQueue.cs" />
+    <Compile Include="Hediffs\Hediff_MimicSlime.cs" />
+    <Compile Include="Hediffs\Hediff_SlimeWanderer.cs" />
+    <Compile Include="Incidents\QuestNode_Root_MimicSlimeJoinColony.cs" />
+    <Compile Include="MimicSlimeHairUtility.cs" />
+    <Compile Include="PawnRenderNode_MimicSlimeHair.cs" />
+    <Compile Include="Things\CompTraitsOnSpawn.cs" />
+    <Compile Include="Things\DeathActionWorker_SlimeKing.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_DropBloodFilth.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_Ideo_Notify_MemberCorpseDestroyed.cs" />
+    <Compile Include="HarmonyPatch\SlimeHarmonyPatch_Kill.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_DropBloodSmear.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_NotifyPlayerOfKilled.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_Ideo_Notify_MemberDied.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_AppendThoughts_ForHumanlike.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_AppendThoughts_Relations.cs" />
+    <Compile Include="HarmonyPatch\ActuallySlimeHarmonyPatch_Royalty_Notify_PawnKilled.cs" />
+    <Compile Include="Hediffs\Hediff_SummonedSlimeKing.cs" />
+    <Compile Include="SlimeData.cs" />
+    <Compile Include="Things\Building_SlimeEssenceSqueezer.cs" />
+    <Compile Include="Things\CompFission.cs" />
+    <Compile Include="Hediffs\Hediff_Fission.cs" />
+    <Compile Include="Things\CompSlimeCore.cs" />
+    <Compile Include="Things\CompUseEffect_CallSlimeKing.cs" />
+    <Compile Include="Things\DeathActionWorker_WildSlime.cs" />
+    <Compile Include="Hediffs\HediffComp_HealBySeverity.cs" />
+    <Compile Include="Hediffs\Hediff_SlimeCure.cs" />
+    <Compile Include="Hediffs\Hediff_SlimeLevel.cs" />
+    <Compile Include="Hediffs\Hediff_SlimeParasite.cs" />
+    <Compile Include="Incidents\SlimeRainIncident.cs" />
+    <Compile Include="MimicSlimeManager.cs" />
+    <Compile Include="MimicSlimeDefOf.cs" />
+    <Compile Include="MimicSlimeUtility.cs" />
+    <Compile Include="modsettings\MimicSlimeMod.cs" />
+    <Compile Include="modsettings\MimicSlimeModSettings.cs" />
+    <Compile Include="modsettings\SettingChangeHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Things\DeathActionWorker_MimicSlime.cs" />
+    <Compile Include="Things\Verb_MakeInvisibility.cs" />
+    <Compile Include="Things\Verb_SummonSlimeKing.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
