@@ -111,7 +111,7 @@ namespace MimicSlime
             manager.AddPawnToQueueAndRemovePawn(originalSlime, targetPawn, MimicSlimeModSettings.StripClothing);
             if (pawn.needs.food != null)
             {
-                pawn.needs.food.CurLevel = pawn.needs.food.MaxLevel;
+            pawn.needs.food.CurLevel = pawn.needs.food.MaxLevel;
             }
 
             return base.Activate(target, dest);

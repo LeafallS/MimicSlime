@@ -71,7 +71,10 @@
     <Compile Include="HarmonyPatch\SlimeHarmonyPatch_GeneratePawn.cs" />
     <Compile Include="HarmonyPatch\SlimeHarmonyPatch_InstallImplantMechlink.cs" />
     <Compile Include="HarmonyPatch\SlimeHarmonyPatch_RemoveBodyPartRecipe.cs" />
+<<<<<<< HEAD
     <Compile Include="Hediffs\HediffComp_ShowMimicryQueue.cs" />
+=======
+>>>>>>> 1b43d809c5c40bc62b7a2966dbe37c83f28e88e2
     <Compile Include="Hediffs\Hediff_MimicSlime.cs" />
     <Compile Include="Hediffs\Hediff_SlimeWanderer.cs" />
     <Compile Include="Incidents\QuestNode_Root_MimicSlimeJoinColony.cs" />

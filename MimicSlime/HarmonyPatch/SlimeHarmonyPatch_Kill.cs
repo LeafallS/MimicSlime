@@ -19,6 +19,7 @@ namespace MimicSlime
                 TaggedString text = "SlimeDeathText".Translate(__instance.LabelShortCap);
                 Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.Death, __instance);
             }
+
             else if (__instance.health.hediffSet.HasHediff(MimicSlimeDefOf.ActuallySlime))
             {
                 Pawn slime = MimicSlimeUtility.GetOriginalSlime(__instance);

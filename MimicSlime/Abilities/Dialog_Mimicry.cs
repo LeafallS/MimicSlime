@@ -279,6 +279,7 @@ namespace MimicSlime
 
             // 销毁角色
             manager.RemoveFromQueue(originalSlime, pawn);
+            if (!pawn.Destroyed) pawn.Destroy();
 
             selectedPawn = null;
             scrollPosition = Vector2.zero;
@@ -297,6 +298,7 @@ namespace MimicSlime
             if (caster.MapHeld != null)
             {
                 // 传回
+                MimicSlimeUtility.ResurrectionThenCureAll(selectedPawn);
                 if (selectedPawn.Spawned) selectedPawn.DeSpawn();
                 GenSpawn.Spawn(selectedPawn, caster.Position, caster.MapHeld);
                 MimicSlimeUtility.AddToFaction(caster, selectedPawn);
@@ -315,6 +317,7 @@ namespace MimicSlime
             if (caster.MapHeld != null)
             {
                 MimicSlimeUtility.AddToFaction(caster, originalSlime);
+                MimicSlimeUtility.ResurrectionThenCureAll(originalSlime);
 
                 // 传回原始史莱姆
                 if (originalSlime.Spawned) originalSlime.DeSpawn();
@@ -328,6 +331,10 @@ namespace MimicSlime
         private void HandleShowDetails(Pawn pawn)
         {
             if (pawn == null) return;
+            if (pawn.Dead)
+            {
+                MimicSlimeUtility.ResurrectionThenCureAll(pawn);
+            }
 
             try
             {

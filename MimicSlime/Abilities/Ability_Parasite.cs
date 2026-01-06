@@ -31,29 +31,16 @@ namespace MimicSlime
                 return false;
             }
 
-            if (targetPawn.IsAnimal && !targetPawn.IsWildMan())
             {
                 Messages.Message(
-                    "MimicSlimeAbility_Animal".Translate(),
-                    MessageTypeDefOf.RejectInput
-                );
-                return false;
-            }
-
-            if (targetPawn.health?.hediffSet?.HasHediff(MimicSlimeDefOf.ActuallySlime) == true || targetPawn.def == MimicSlimeDefOf.MimicSlimeRace)
-            {
-                Messages.Message(
-                    "Ability_GiveSlimeAbility_ToSlime".Translate(),
                     MessageTypeDefOf.RejectInput
                 );
                 return false;
             }
 
             // 检查目标是否已有寄生虫
-            if (targetPawn.health?.hediffSet?.HasHediff(MimicSlimeDefOf.SlimeParasite) == true)
             {
                 Messages.Message(
-                    "Ability_GiveSlimeParasite_AlreadyInfected".Translate(targetPawn.NameShortColored),
                     MessageTypeDefOf.RejectInput
                 );
                 return false;
